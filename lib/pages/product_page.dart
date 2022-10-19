@@ -1,10 +1,14 @@
+import 'package:exercise_e7/model/cart_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../main.dart';
+import '../model/cart.dart';
 import '../widgets/size_selector.dart';
 import 'shopping_cart_page.dart';
 
 /// Represents the product page
-class ProductPage extends StatelessWidget {
+class ProductPage extends  ConsumerStatefulWidget{
   const ProductPage({Key? key}) : super(key: key);
   static const cartItemCountKey = Key("cart_item_count_text");
   static const addCountKey = Key("add_count_text");
@@ -15,7 +19,24 @@ class ProductPage extends StatelessWidget {
   static const String sizeErrorMessage = "Choose the size first";
 
   @override
+  ConsumerState<ProductPage> createState() => _ProductPageState();
+}
+
+
+
+class _ProductPageState extends ConsumerState<ProductPage> {
+
+  int _amount = 0;
+
+  int _buttonCounter = 1;
+
+  bool _isSubmitted = false;
+
+  bool _invalidSize = false;
+
+  @override
   Widget build(BuildContext context) {
+    _amount = ref.watch(cartState).getAmountOfItems();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Product page"),
@@ -29,6 +50,7 @@ class ProductPage extends StatelessWidget {
             _buildProductTitle(),
             _buildImage(),
             const SizeSelector(),
+            if(_isSubmitted && _invalidSize) Text(ProductPage.sizeErrorMessage),
             _buildCountSelectors(),
             _buildButton()
           ],
@@ -46,9 +68,9 @@ class ProductPage extends StatelessWidget {
         //  - When no items in the cart - hide this text (remove the Text widget)
         //  - When one t-shirt added to the cart, this must show "1"
         //  - When two L-sized shirts + three XL-shirts added to the cart, this must show 5 (not 2)
-        Text("4", key: cartItemCountKey),
+        Text(_amount == 0 ? "" : _amount.toString(), key: ProductPage.cartItemCountKey),
         IconButton(
-          key: openCartKey,
+          key: ProductPage.openCartKey,
           onPressed: () => _showShoppingCartPage(context),
           icon: const Icon(Icons.shopping_cart),
         ),
@@ -84,14 +106,14 @@ class ProductPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           IconButton(
-            key: minusButtonKey,
-            onPressed: _decrementCount,
+            key: ProductPage.minusButtonKey,
+            onPressed: _buttonCounter == 1 ? null : _decrementCount,
             icon: const Icon(Icons.remove),
           ),
-          Text("Count: 7", key: addCountKey),
+          Text("Count: " + _buttonCounter.toString(), key: ProductPage.addCountKey),
           IconButton(
-            key: plusButtonKey,
-            onPressed: _incrementCount,
+            key: ProductPage.plusButtonKey,
+            onPressed: _buttonCounter == 10 ? null : _incrementCount,
             icon: const Icon(Icons.add),
           ),
         ],
@@ -102,7 +124,7 @@ class ProductPage extends StatelessWidget {
   /// Build the "Add to cart" button
   Widget _buildButton() {
     return ElevatedButton(
-      key: addToCartKey,
+      key: ProductPage.addToCartKey,
       onPressed: _addToCart,
       child: const Padding(
         padding: EdgeInsets.all(8.0),
@@ -115,6 +137,9 @@ class ProductPage extends StatelessWidget {
   /// the count must be increased
   void _incrementCount() {
     print("Count++");
+    setState(() {
+      _buttonCounter++;
+    });
     // TODO - implement the necessary logic
   }
 
@@ -122,6 +147,11 @@ class ProductPage extends StatelessWidget {
   /// the count must be decreased
   void _decrementCount() {
     print("Count--");
+    setState(() {
+      if(_buttonCounter > 1){
+        _buttonCounter--;
+      }
+    });
     // TODO - implement the necessary logic
   }
 
@@ -129,6 +159,17 @@ class ProductPage extends StatelessWidget {
   /// a new item must be added to the cart, using the appropriate size and count
   void _addToCart() {
     print("Adding product(s) to the cart...");
+    setState(() {
+      _isSubmitted = true;
+      String? size = ref.watch(selectedState);
+      print(size);
+      _invalidSize = size == null || size.isEmpty;
+      if(!_invalidSize){
+        Cart cart = ref.watch(cartState);
+        cart.addItem(CartItem("Shirt", size, _buttonCounter));
+        _buttonCounter = 1;
+      }
+    });
     // TODO - implement the necessary logic
   }
 
