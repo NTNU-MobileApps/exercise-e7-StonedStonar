@@ -1,0 +1,242 @@
+{
+  "tests": [
+    {
+      "name": "Size selector works",
+      "setup": "",
+      "run": "flutter test --name='Size selector works'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "No item count in cart icon",
+      "setup": "",
+      "run": "flutter test --name='No item count in cart icon'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "No size selected by default",
+      "setup": "",
+      "run": "flutter test --name='No size selected by default'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "No error message by default",
+      "setup": "",
+      "run": "flutter test --name='No error message by default'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Count is 1 by default",
+      "setup": "",
+      "run": "flutter test --name='Count is 1 by default'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Minus button is disabled by default",
+      "setup": "",
+      "run": "flutter test --name='Minus button is disabled by default'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Plus button is enabled by default",
+      "setup": "",
+      "run": "flutter test --name='Plus button is enabled by default'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Pressing plus changes the count to 2",
+      "setup": "",
+      "run": "flutter test --name='Pressing plus changes the count to 2'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Pressing plus twice changes the count to 3",
+      "setup": "",
+      "run": "flutter test --name='Pressing plus twice changes the count to 3'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Pressing plus enables the minus button",
+      "setup": "",
+      "run": "flutter test --name='Pressing plus enables the minus button'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Minus button disabled when count becomes 1",
+      "setup": "",
+      "run": "flutter test --name='Minus button disabled when count becomes 1'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Cannot press plus when count is 10",
+      "setup": "",
+      "run": "flutter test --name='Cannot press plus when count is 10'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "9x plus, 1x minus => plus button enabled",
+      "setup": "",
+      "run": "flutter test --name='9x plus, 1x minus => plus button enabled'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Error when add a product with no size",
+      "setup": "",
+      "run": "flutter test --name='Error when add a product with no size'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Add a no-size, then M-size: no error",
+      "setup": "",
+      "run": "flutter test --name='Add a no-size, then M-size: no error'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Can add one M-size t-shirt to the cart",
+      "setup": "",
+      "run": "flutter test --name='Can add one M-size t-shirt to the cart'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Can add one L-size t-shirt to the cart",
+      "setup": "",
+      "run": "flutter test --name='Can add one L-size t-shirt to the cart'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Can add 3x L-size t-shirts to the cart",
+      "setup": "",
+      "run": "flutter test --name='Can add 3x L-size t-shirts to the cart'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Can add 10x L-size t-shirts to the cart",
+      "setup": "",
+      "run": "flutter test --name='Can add 10x L-size t-shirts to the cart'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Can add 2x L-size and 3x L-size t-shirts to the cart",
+      "setup": "",
+      "run": "flutter test --name='Can add 2x L-size and 3x L-size t-shirts to the cart'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Can add twice 10x L-size t-shirts to the cart",
+      "setup": "",
+      "run": "flutter test --name='Can add twice 10x L-size t-shirts to the cart'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Can add 2x L-size and 4x S-size t-shirts to the cart",
+      "setup": "",
+      "run": "flutter test --name='Can add 2x L-size and 4x S-size t-shirts to the cart'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Click to the cart icon opens shopping cart page",
+      "setup": "",
+      "run": "flutter test --name='Click to the cart icon opens shopping cart page'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "By default no items in the cart",
+      "setup": "",
+      "run": "flutter test --name='By default no items in the cart'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "By default cart-empty message is shown",
+      "setup": "",
+      "run": "flutter test --name='By default cart-empty message is shown'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "No delete icon when the cart is empty",
+      "setup": "",
+      "run": "flutter test --name='No delete icon when the cart is empty'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Find delete icon for first product",
+      "setup": "",
+      "run": "flutter test --name='Find delete icon for first product'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Add and delete a product",
+      "setup": "",
+      "run": "flutter test --name='Add and delete a product'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Add three identical products, delete one",
+      "setup": "",
+      "run": "flutter test --name='Add three identical products, delete one'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Add 3 items, delete 1st",
+      "setup": "",
+      "run": "flutter test --name='Add 3 items, delete 1st'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Add 3 items, delete 2nd",
+      "setup": "",
+      "run": "flutter test --name='Add 3 items, delete 2nd'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Add 3 items, delete 3rd",
+      "setup": "",
+      "run": "flutter test --name='Add 3 items, delete 3rd'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Add 3 items, delete 1st and 3rd",
+      "setup": "",
+      "run": "flutter test --name='Add 3 items, delete 1st and 3rd'",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Add 3 items, delete all",
+      "setup": "",
+      "run": "flutter test --name='Add 3 items, delete all'",
+      "timeout": 10,
+      "points": 10
+    }
+  ]
+}
